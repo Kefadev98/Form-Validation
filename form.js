@@ -6,7 +6,6 @@ const check = document.getElementById('check');
 const button = document.getElementById('button');
 
 
-
 form.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -14,22 +13,16 @@ form.addEventListener('submit', e => {
 
 });
 
-
 function checkInputs() {
-    //Ovdje pravimo nove konstante koje sadrze vrijednosti Inputa
-    //trim uklanja white space from string, tako da u inputu ne mozemo koristiti space
     const usernameValue = username.value.trim(); 
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
     const checkValue = check.value.trim();
 
-    if(usernameValue === '') {
-        //prikazi error message
-        //dodaj error classu
-        setErrorFor(username, 'Username required') // dodjeljujemo novu klasu koja ce prikazati ako dodje do errora
+    if(usernameValue === '') { 
+        setErrorFor(username, 'Username required') 
     }
     else {
-        //add success class
         setSuccessFor(username)
     }
 
@@ -66,13 +59,11 @@ function checkInputs() {
 
 
 function setErrorFor(input, message) {
-    const formControl = input.parentElement //parentElement u ovom slucaju to je .form-control klasa
+    const formControl = input.parentElement 
     const small = formControl.querySelector('small');
 
-    //dodaj error message unutar smalla
     small.innerText = message;
-
-    //dodaj error klasu 
+ 
     formControl.className = 'form-control error';
 }
 
